@@ -1,5 +1,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Exo+2:wght@300&display=swap');
 
+p {
+  margin: 0;
+}
+
+* {
+  box-sizing: border-box;
+}
+
 body {
   background-color: #666;
   font-family: "Exo 2", sans-serif;
@@ -47,3 +55,84 @@ body {
   opacity: .8;
 }
 
+#pictures {
+  display: none;
+}
+
+.preview {
+  display: flex;
+  flex-wrap: wrap;
+  padding: .5rem;
+}
+
+.preview-image {
+  margin: 0 .5rem .5rem 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.preview-image img {
+  width: 180px;
+  height: auto;
+}
+
+.preview-remove {
+  opacity: 0;
+  width: 20px;
+  height: 20px;
+  font: bold 20px "Exo 2";
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  top: 0;
+  right: 0;
+  padding-bottom: 2px;
+  background-color: rgba(255,255,255,.5);
+  transition: opacity .5s;
+  cursor: pointer;
+  z-index: 2;
+}
+.preview-remove:hover {
+  background-color: rgba(255,255,255,.7);
+}
+
+.preview-image:hover .preview-remove {
+  opacity: 1;
+  transition: opacity .3s;
+}
+
+.preview-info {
+  font: bold .8rem "Exo 2";
+  position: absolute;
+  text-align: center;
+  display: flex;
+  justify-content: space-between;
+  align-items: stretch;
+  flex-wrap: wrap;
+  flex-direction: column;
+  bottom: -100%;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  vertical-align: middle;
+  background-color: rgba(255,255,255,.5);
+  z-index: 1;
+  transition: bottom .3s;
+  padding: 20px 0 10px;
+  pointer-events: none;
+}
+
+.preview-image:hover .preview-info {
+  transition: bottom .3s;
+  bottom: 0;
+}
+
+.preview-info p:first-child {
+  padding:  5px;
+  max-width: 180px;
+  width: 100%;
+  display: inline-block;
+  overflow-wrap: break-word;
+}
